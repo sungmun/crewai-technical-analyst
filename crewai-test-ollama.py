@@ -2,9 +2,10 @@ from crewai import Agent, Crew, Task
 from custom_crewai_tool import stock_news,stock_price,income_stmt,balance_sheet,insider_transactions,scrape_tool
 from langchain_community.llms.ollama import Ollama
 import os
-
 from datetime import datetime as dt
+from dotenv import load_dotenv
 
+load_dotenv()
 company = os.environ.get("COMPANY", "")
 date = dt.now().strftime("%m-%d")
 timestamp = dt.now().timestamp()
