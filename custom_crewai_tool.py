@@ -77,14 +77,12 @@ def stock_price(ticker: str):
     Parameters:
     - ticker (str): The stock ticker symbol (e.g. AAPL for Apple Inc., NET for Cloudflare Inc.). 
       The ticker should be a valid stock symbol listed on a major stock exchange.
-
-    Returns:
-    - Historical stock price data for the last 1 years, or an error message if the ticker is invalid.
     """
     try:
         ticker_data = yf.Ticker(ticker)
         if not ticker_data.info:
             return f"Invalid ticker: {ticker}"
+        # return ticker_data.history(period="1y")
         return ticker_data.history(period="1y")
     except Exception as e:
         return f"An error occurred: {e}"

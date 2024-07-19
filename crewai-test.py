@@ -74,7 +74,7 @@ financial_analysis = Task(
     async_execution=True,
 )
 investment_recommendation = Task(
-    description="""Based on the research, technical analysis, and financial analysis reports, provide a detailed investment recommendation for {company} stock.""",
+    description="""Based on the Current market situation, research, technical analysis, and financial analysis reports, provide a detailed investment recommendation for {company} stock.""",
     agent=hedge_fund_manager,
     expected_output="""Your final answer MUST be a detailed recommendation to BUY, SELL or HOLD the stock. Provide a clear rationale for your recommendation.""",
     context=[research, technical_analysis, financial_analysis],
