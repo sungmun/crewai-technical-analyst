@@ -1,4 +1,5 @@
-from crewai_tools import tool, ScrapeWebsiteTool
+from crewai_tools import ScrapeWebsiteTool
+from crewai.tools import tool
 import yfinance as yf
 import pandas as pd
 from datetime import datetime as dt

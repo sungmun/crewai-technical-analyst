@@ -1,0 +1,46 @@
+research_task:
+  description: >
+    Gather and analyze the latest news and market sentiment surrounding {company}'s stock. 
+    Provide a summary of the news and any notable shifts in sentiment.
+  agent: researcher
+  expected_output: >
+    Your final answer MUST be a detailed summary of the news and market sentiment 
+    surrounding the stock.
+  async_execution: true
+
+technical_analysis_task:
+  description: >
+    Conduct a technical analysis of the {company}'s stock price movements and 
+    identify key support and resistance levels chart patterns.
+  agent: technical_analyst
+  expected_output: >
+    Your final answer MUST be a report with potential entry points, price targets 
+    and any other relevant information.
+  output_file: "{data_dir}/technical_analysis_{timestamp:.0f}.md"
+  async_execution: true
+
+financial_analysis_task:
+  description: >
+    Analyze the {company}'s financial statements, balance sheet, insider trading 
+    data and other metrics to evaluate {company}'s financial health and performance.
+  agent: financial_analyst
+  expected_output: >
+    Your final answer MUST be a report with an overview of {company}'s revenue, 
+    earnings, cash flow, and other key financial metrics.
+  output_file: "{data_dir}/financial_analysis_{timestamp:.0f}.md"
+  async_execution: true
+
+investment_recommendation_task:
+  description: >
+    Based on the Current market situation, research, technical analysis, and 
+    financial analysis reports, provide a detailed investment recommendation 
+    for {company} stock.
+  agent: hedge_fund_manager
+  expected_output: >
+    Your final answer MUST be a detailed recommendation to BUY, SELL or HOLD 
+    the stock. Provide a clear rationale for your recommendation.
+  context:
+    - research_task
+    - technical_analysis_task
+    - financial_analysis_task
+  output_file: "{data_dir}/investment_recommendation_{timestamp:.0f}.md"
